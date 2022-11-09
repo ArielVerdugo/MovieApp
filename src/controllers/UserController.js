@@ -43,14 +43,6 @@ export class UserController {
     });
   }
 
-  getMovies(){
-    return this.networkService.request({
-      method:'GET',
-      url: routes.movies.getAllMovies
-    });
-  }
-
-
 
   login({ username, password, demoMode }) {
     if (demoMode) {

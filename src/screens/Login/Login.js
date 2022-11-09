@@ -4,7 +4,6 @@ import { View } from 'react-native';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
 import { generateSessionId} from '@/actions/UserActions';
 import { login, TYPES } from '@/actions/UserActions';
-import {getMovies} from '@/actions/UserActions'; 
 //import { se, TYPES } from '@/actions/UserActions';
 import { Button, ErrorView, TextField } from '@/components';
 import { strings } from '@/localization';

@@ -40,17 +40,30 @@ export const login = (username, password) => async (dispatch, _, { demoMode, net
     const userController = new UserController(networkService);
     const { data } = await userController.login({ username, password, demoMode });
 
-    /*if(!demoMode){
+    if(!demoMode){
       networkService.setAccessToken(data.user.accessToken);
-    }*/
-    const {data:{results}} = await userController.getMovies();
-    console.log(results);
+    }
+
+    //const {data:{results}} = await userController.getMovies();
+    //console.log(results);
 
     dispatch(loginSuccess(data.user));
   } catch ({ data }) {
     dispatch(loginError(data?.error ?? strings.login.invalidCredentials));
   }
 };
+
+/*export const getMovies = () => async(dispatch, _, {networkService }) =>{
+
+  const userController = new UserController(networkService);
+
+  const { data : { results } } = await userController.getMovies();
+  console.log(results);
+  return results;
+};*/
+
+
+
 
 //Version tratandom de logarme
 /*export const login = (username, password) => async (dispatch, _, { demoMode, networkService }) => {
@@ -108,21 +121,4 @@ export const logout = () => async (dispatch, _, { demoMode, networkService }) =>
 };
 
 
-export const getMovies = async(dispatch, _, { demoMode, networkService }) =>{
-  try{
-    const userController = new UserController(networkService);
-    const {data:{results}} = await userController.getMovies();
-    console.log(results);
-    return results;
-  } catch({data}){
-    console.log("entro al error");
-  }
-  
-};
 
-export const UseGetAllmovies = () =>{
-  const{isLoading,data} = useQuery(['allMovies'],getMovies);
-  console.log(data);
-
-  return {data,isLoading};
-};

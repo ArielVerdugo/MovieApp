@@ -8,17 +8,21 @@ import { strings } from '@/localization';
 import { getUser } from '@/selectors/UserSelectors';
 import { styles } from '@/screens/Home/Home.styles';
 import { typography } from '@/theme';
-import { UseGetAllmovies } from '@/actions/UserActions';
+
+import { UserController } from '@/controllers';
+import { getMovies } from '@/controllers/MovieController';
+import { useQuery } from '@tanstack/react-query';
+
 
 export function Home() {
   const { colors } = useTheme();
   const user = useSelector(getUser);
-  //const{data,isLoading} = UseGetAllmovies();
 
-  //console.log(data);
+  const{isLoading,data} = useQuery(['allMovies'],getMovies);
+  console.log(data); 
+
   return (
     <View style={styles.container}>
-      
     </View>
   );
 }
