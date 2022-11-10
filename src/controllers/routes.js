@@ -13,7 +13,9 @@ export const routes = {
   sessionId:{
     getSessionId: 'https://api.themoviedb.org/3/authentication/guest_session/new?api_key=1d1e3eb34d70d120d43954cd81f5915d'
   }
+
 };
 
-const BASE_URL = 'https://api.themoviedb.org/3/'
+const BASE_URL = 'https://api.themoviedb.org/3'
+export const IMAGE_URL = 'https://image.tmdb.org/t/p/w500'
 const API_KEY = 'api_key=1d1e3eb34d70d120d43954cd81f5915d'
